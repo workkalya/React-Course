@@ -109,3 +109,48 @@ export default App;
 ```
 
 By following these guidelines, you can set up and manage your React application efficiently.
+## Using Evaluated Expressions to Insert Variables in HTML
+
+In React, you can insert variables directly into your HTML using evaluated expressions. This is done by embedding JavaScript expressions within curly braces `{}` inside your JSX code.
+
+### Example
+
+Here is an example of how to use evaluated expressions to insert variables into your HTML:
+
+```jsx
+// src/Greeting.jsx
+import React from 'react';
+
+function Greeting(props) {
+    return <h1>Hello, {props.name}!</h1>;
+}
+
+export default Greeting;
+```
+
+In the above example, the `Greeting` component takes a `name` prop and inserts it into the `<h1>` element using `{props.name}`.
+
+### Using the Component
+
+You can use the `Greeting` component in your `App.js` like this:
+
+```jsx
+// src/App.jsx
+import React from 'react';
+import Greeting from './Greeting';
+
+function App() {
+    const userName = 'John Doe';
+    return (
+        <div>
+            <Greeting name={userName} />
+        </div>
+    );
+}
+
+export default App;
+```
+
+In this example, the `userName` variable is passed as a prop to the `Greeting` component, and it will be displayed as "Hello, John Doe!" in the rendered HTML.
+
+By using evaluated expressions, you can dynamically insert and update content in your React components based on the state and props.
