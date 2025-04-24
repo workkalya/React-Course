@@ -4,7 +4,7 @@ import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } 
 
 import './index.css';
 import Layout from './Layout';
-import { About,Home,Contactus, User, Github, Git } from './components';
+import { About,Home,Contactus, User, Github, Git,Userpage,UserLoader } from './components';
 
 
 // const router = createBrowserRouter([
@@ -30,11 +30,13 @@ import { About,Home,Contactus, User, Github, Git } from './components';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="" element={<Layout />} >
+    <Route path="/" element={<Layout />} >
        <Route path="" element={<Home />} />
        <Route path="about" element={<About />} />
        <Route path="contact" element={<Contactus />} />
-       <Route path="user/:userid" element={<User />} />
+        <Route 
+        loader={UserLoader} path="user" element={<Userpage />} />
+       <Route  path="user/:userid" element={<User />} />
        <Route path="github" element={<Git />} />
        <Route path="github/:userid" element={<Github />} />
     </Route>
