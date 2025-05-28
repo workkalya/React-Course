@@ -1,16 +1,15 @@
-import { use } from 'react';
-import confifg from '../config.js';
 import { Client, Account, ID } from "appwrite";
+import config from '../config/config.js';
 
 
 export class AuthService {
     client = new Client();
     account;
      constructor() {
+        
         this.client
-            .setEndpoint(confifg. appwriteurl) // Your API Endpoint
-            .setProject(confifg.appwriteprojectid); // Your project ID
-
+            .setEndpoint(config.appwriteurl) // Your API Endpoint
+            .setProject(config.appwriteprojectid); // Your project ID
         this.account = new Account(this.client);
      }
 
@@ -59,4 +58,5 @@ export class AuthService {
      
 }
 
-export const authService = new AuthService();
+ const authService = new AuthService();
+ export default authService;
